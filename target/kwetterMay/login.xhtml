@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <h:outputStylesheet name="css/style.css"/>
+    <h:outputScript name="javascript/kwetterJS.js"/>
+</h:head>
+<h:body>
+    <section id="container">
+        <div id="registerlogin">
+            <section id="logIn">
+                <h:form method="POST" action="j_security_check">
+                    <!--<p:panelGrid columns="2">-->
+                        <!--Username:-->
+                        <!--<h:inputText id="j_username" size="30" ></h:inputText>-->
+
+                        <!--Password:-->
+                        <!--<h:inputSecret id="j_password" size="30" ></h:inputSecret>-->
+                    <!--</p:panelGrid>-->
+                    <!--<h:commandButton value="Login" title="Login" type="submit"/>-->
+
+                    <p:panelGrid columns="2" styleClass="panelTable">
+                        Username:
+                        <h:inputText value="#{registerLogIn.username}" size="30" ></h:inputText>
+
+                        Password:
+                        <h:inputSecret value="#{registerLogIn.password}" size="30" ></h:inputSecret>
+                    </p:panelGrid>
+                    <h:commandButton value="log in" action="#{registerLogIn.logInUserByUserName}" />
+                </h:form>
+            </section>
+
+            <section id="register">
+                <h:form>
+                    <p:panelGrid columns="2" styleClass="panelTable">
+                        Name:
+                        <h:inputText id="name" value="#{registerLogIn.name}" ></h:inputText>
+
+                        Username:
+                        <h:inputText id="regUsername" value="#{registerLogIn.regUsername}" ></h:inputText>
+
+                        Password:
+                        <h:inputText id="regPassword" value="#{registerLogIn.regPassword}" ></h:inputText>
+
+                        Confirm Password:
+                        <h:inputText id="regPasswordCnfrm" value="#{registerLogIn.regPasswrdCnfrm}" ></h:inputText>
+
+                        Email:
+                        <h:inputText id="email" value="#{registerLogIn.email}" ></h:inputText>
+
+                        Confirm email:
+                        <h:inputText id="emailCnfrm" value="#{registerLogIn.emailCnfrm}" ></h:inputText>
+
+                        Website:
+                        <h:inputText id="website" value="#{registerLogIn.website}" ></h:inputText>
+                    </p:panelGrid>
+                    <h:commandButton value="Register" action="#{registerLogIn.registerUser}"/>
+                </h:form>
+            </section>
+        </div>
+    </section>
+</h:body>
+</html>
