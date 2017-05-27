@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="kwetter" />
+          <element id="module-output" name="kwetterMay" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.6" />
@@ -36,7 +36,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/kwetterMay/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="kwetter/web/Web" />
+      <element id="javaee-facet-resources" facet="kwetterMay/web/Web" />
     </root>
   </artifact>
 </component>

@@ -12,7 +12,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
   </context-param>
 
   <welcome-file-list>
-    <welcome-file>login.xhtml</welcome-file><!-- index.xhtml-->
+    <welcome-file>index.xhtml</welcome-file>
   </welcome-file-list>
 
   <servlet>
@@ -21,19 +21,6 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
     <load-on-startup>1</load-on-startup>
   </servlet>
 
-  <!-- Map these files with JSF -->
-  <!--<servlet-mapping>-->
-    <!--<servlet-name>Faces Servlet</servlet-name>-->
-    <!--<url-pattern>/faces/*</url-pattern>-->
-  <!--</servlet-mapping>-->
-  <!--<servlet-mapping>-->
-    <!--<servlet-name>Faces Servlet</servlet-name>-->
-    <!--<url-pattern>*.jsf</url-pattern>-->
-  <!--</servlet-mapping>-->
-  <!--<servlet-mapping>-->
-    <!--<servlet-name>Faces Servlet</servlet-name>-->
-    <!--<url-pattern>*.faces</url-pattern>-->
-  <!--</servlet-mapping>-->
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
@@ -44,48 +31,4 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
     <param-value>true</param-value>
   </context-param>
 
-  <!--<context-param>-->
-    <!--<param-name>javax.faces.CONFIG_FILES</param-name>-->
-    <!--<param-value>-->
-      <!--/WEB-INF/faces-config.xml-->
-    <!--</param-value> &lt;!&ndash;path/to/&ndash;&gt;-->
-  <!--</context-param>-->
-
-  <!--<context-param>-->
-    <!--<param-name>primefaces.THEME</param-name>-->
-    <!--<param-value>bootstrap</param-value>-->
-  <!--</context-param>-->
-  <!--<login-config>-->
-    <!--<auth-method>BASIC</auth-method>-->
-    <!--<realm-name>kwetter_realm_2</realm-name>-->
-  <!--</login-config>-->
-  <!--<security-role>-->
-  <!--<role-name>admin_role</role-name>-->
-  <!--</security-role>-->
-  <!--<security-role>-->
-  <!--<role-name>moderator_role</role-name>-->
-  <!--</security-role>-->
-
-  <!--<security-role>-->
-    <!--<description>regular</description>-->
-    <!--<role-name>regular_role</role-name>-->
-  <!--</security-role>-->
-
-  <!--<security-constraint>-->
-    <!--<web-resource-collection>-->
-      <!--<web-resource-name>Secure Pages</web-resource-name>-->
-      <!--<url-pattern>/*</url-pattern>-->
-    <!--</web-resource-collection>-->
-    <!--<auth-constraint>-->
-      <!--<role-name>regular_role</role-name>-->
-    <!--</auth-constraint>-->
-  <!--</security-constraint>-->
-  <!--<login-config>-->
-    <!--<auth-method>FORM</auth-method>-->
-    <!--<realm-name>kwetter_realm_2</realm-name>-->
-    <!--<form-login-config>-->
-      <!--<form-login-page>/login.xhtml</form-login-page>-->
-      <!--<form-error-page>/login_error.xhtml</form-error-page>-->
-    <!--</form-login-config>-->
-  <!--</login-config>-->
 </web-app>

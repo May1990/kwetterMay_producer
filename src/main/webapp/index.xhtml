@@ -13,9 +13,9 @@
         <div id="start">
             <section id="happening">
                 <h3>What's happening?</h3>
-                <h:form>
-                    <h:inputTextarea id="newTweet" a:maxlength="140" styleClass="inputTweet" value="#{tweetMgr.newTweetContent}" onkeypress="if (event.keyCode == 13) {event.target.blur();event.stopPropagation();return false;} else {return true;};">
-                        <f:ajax event="change" execute="newTweet" render=":myTweetForm" listener="#{tweetMgr.addNewTweet}"/>
+                <h:form id="myTweetForm">
+                    <h:inputTextarea id="newTweet" a:maxlength="140" styleClass="inputTweet" value="#{tweetMgrEJB.content}" onkeypress="if (event.keyCode == 13) {event.target.blur();event.stopPropagation();return false;} else {return true;};">
+                        <f:ajax event="change" execute="newTweet" render=":myTweetForm" listener="#{tweetMgrEJB.newTweet}"/>
                     </h:inputTextarea>
                 </h:form>
             </section>

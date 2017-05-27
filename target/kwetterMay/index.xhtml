@@ -10,82 +10,14 @@
 </h:head>
 <h:body>
     <section id="container">
-        <ui:include src="header.xhtml" />
-        <header>
-            <h:form id="searchForm">
-                <h:inputText id="searchTxt" value="#{tweetMgr.searchWord}" onkeypress="if (event.keyCode == 13) {event.target.blur();event.stopPropagation();return false;} else {return true;};" >
-                    <f:ajax event="change" execute="searchTxt" render=":tableForm:tbvwTweets" listener="#{tweetMgr.searchWordChanged}"/>
-                </h:inputText>
-            </h:form>
-        </header>
         <div id="start">
             <section id="happening">
                 <h3>What's happening?</h3>
-                <h:form>
-                    <h:inputTextarea id="newTweet" a:maxlength="140" styleClass="inputTweet" value="#{tweetMgr.newTweetContent}" onkeypress="if (event.keyCode == 13) {event.target.blur();event.stopPropagation();return false;} else {return true;};">
-                        <f:ajax event="change" execute="newTweet" render=":myTweetForm" listener="#{tweetMgr.addNewTweet}"/>
+                <h:form id="myTweetForm">
+                    <h:inputTextarea id="newTweet" a:maxlength="140" styleClass="inputTweet" value="#{tweetMgrEJB.content}" onkeypress="if (event.keyCode == 13) {event.target.blur();event.stopPropagation();return false;} else {return true;};">
+                        <f:ajax event="change" execute="newTweet" render=":myTweetForm" listener="#{tweetMgrEJB.newTweet}"/>
                     </h:inputTextarea>
                 </h:form>
-
-                <h:form id="tableForm">
-                    <p:tabView styleClass="tabKwetter" id="tbvwTweets">
-                        <p:tab title="Timeline" id="tabTime" >
-                            <h:panelGrid columns="1" cellpadding="0" id="pnlGrdTweet" > <!--style="margin-bottom: 100px;"-->
-                                <p:dataTable id="tweetTable" tableStyle="width: auto;" tableStyleClass="timeLineTable" value="#{tweetMgr.tweets}"  var="tweet" reflow="true" rows="3" paginator="true">
-                                    <p:column>
-                                        <h:graphicImage styleClass="imageUser" value="#{tweet.owner.pictureUrl}"/>
-                                    </p:column>
-                                    <p:column>
-                                        <b>#{tweet.owner.userName}</b><br/>
-                                        <b><small>#{tweet.timeAgo}</small></b>
-                                        #{tweet.content}
-                                    </p:column>
-                                </p:dataTable>
-                            </h:panelGrid>
-                        </p:tab>
-                        <p:tab title="@Mentions">
-                            <h:panelGrid columns="1" cellpadding="0">
-                                <h:outputText value="Francis Ford Coppola's legendary..." />
-                            </h:panelGrid>
-                        </p:tab>
-                    </p:tabView>
-                </h:form>
-            </section>
-
-            <section id="myStartInfo" onload="#{registerLogIn.refreshSizeFollow()};#{tweetMgr.refreshLastTweet()}">
-                <h:form id="myTweetForm">
-                    <h3 id="myTweetTitle">Your tweet's #{tweetMgr.tweetCount}</h3>
-
-                    <p id="myTweet">
-                        <h:graphicImage id="myTweetImage" value="#{registerLogIn.logInUser.pictureUrl}" styleClass="imageUser"/>
-                        <b><small><h:outputText value="#{tweetMgr.lastTweet.timeAgo}" /></small></b><br/>
-                        <h:outputText value="#{tweetMgr.lastTweet.content}" />
-                    </p>
-                </h:form>
-                <section id="imagesFollowing">
-                    <h2>Following</h2>
-                    <ui:repeat value="#{registerLogIn.logInUser.following}" var="folow" end="#{registerLogIn.maxFollowing}">
-                        <h:graphicImage styleClass="imageUser" value="#{folow.pictureUrl}"/>
-                    </ui:repeat>
-                </section>
-
-                <section id="imagesFollowers">
-                    <h2>Followers</h2>
-                    <ui:repeat value="#{registerLogIn.logInUser.followers}" var="folow" end="#{registerLogIn.maxFollower}">
-                        <h:graphicImage styleClass="imageUser" value="#{folow.pictureUrl}"/>
-                    </ui:repeat>
-                </section>
-
-            </section>
-            <section id="trends">
-                <h3>Trends</h3><br/>
-                <p>
-                    #loveIsInTheAir<br/>
-                    #bosselbol<br/>
-                    #oudProgramma<br/>
-                    #m44twerk<br/>
-                    #broodjeAap<br/>
-                </p>
             </section>
         </div>
     </section>
